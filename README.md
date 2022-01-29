@@ -1,16 +1,15 @@
 # Example-Sequence-Alignment
 Protein sequence alignment of the alpha subunit of the ammonia monooxygenase gene from AOAs, Nitrosopumilus maritimus and Nitrosomonas europeae
 
-# Protein sequence alignment of the alpha subunit of the ammonia monooxygenase gene from AOAs, Nitrosopumilus maritimus and Nitrosomonas europeae by MUSCLE (?) and visualized by SeaView
-# MUSCLE = multiple sequence alignment with high accuracy and high throughput. Computer program for aligning proteins 
+## Protein global sequence alignment of the alpha subunit of the ammonia monooxygenase gene from AOAs, Nitrosopumilus maritimus and Nitrosomonas europeae 
 
-# // STEP 1 Retrieve and import FASTA protein sequence from Uniprot
+## Retrieve and import FASTA protein sequence from Uniprot
 library(seqinr)
 library(Biostrings)
 
 require(seqinr)
 
-# Load in Nitrosopumilus and Nitrosomonas AMO-AFASTA files
+## Load in Nitrosopumilus and Nitrosomonas AMO-AFASTA files
 nitrosopumilus_amoA_file = file.choose()
 nitrosopumilus_amoA = read.fasta(file = nitrosopumilus_amoA_file, seqtype = "AA")[[1]]
 
@@ -25,16 +24,9 @@ monas_amoA_aaseq = readAAStringSet(nitrosomonas_amoA_file)
 
 pumilus_string = c2s(pumilus_amoA_aaseq)
 monas_string = c2s(monas_amoA_aaseq)
-
-# Find start codon in both to properly align
-print(pumilus_string)
-print(monas_string)
-
-## Nvm they both start on methionine as they should lol
-
 dotPlot(nitrosopumilus_amoA, nitrosomonas_amoA, main = "Dot plot of a protein\nwsize = 1, wstep = 1, nmatch = 1")
 
-# ... as Needleman-Wunsch using the BLOSUM62 matrix for amino acids
+## ... as Needleman-Wunsch using the BLOSUM50, 62, and 80 matrices for amino acids
 globalAligns1 = Biostrings::pairwiseAlignment(pumilus_string, 
                                   monas_string,
                                   substitutionMatrix = "BLOSUM80",
@@ -42,9 +34,9 @@ globalAligns1 = Biostrings::pairwiseAlignment(pumilus_string,
                                   gapExtension=1)
 
 globalAligns1
-## Gave a score of 175 using BLOSUM80 w/ p-val = .971
-## Gave a score of 194 using BLOSUM62 w/ p-val = .971
-## Gave a score of 331 using BLOSUM50 and later on a p-val of .001 ... this difference compared to BLOSUM62 is interesting
+### Gave a score of 175 using BLOSUM80 w/ p-val = .971
+### Gave a score of 194 using BLOSUM62 w/ p-val = .971
+### Gave a score of 331 using BLOSUM50 and later on a p-val of .001 ... this difference compared to BLOSUM62 is interesting
 
 printPairwiseAlignment <- function(alignment, chunksize=60, returnlist=FALSE)
 {
