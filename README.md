@@ -8,7 +8,11 @@ library(Biostrings)
 
 require(seqinr)
 
-### Load in Nitrosopumilus and Nitrosomonas AMO-AFASTA files
+Nitrosopumilus maritimus SCM1 sequence from UniProt: BOLKZ3
+Nitrosomonas europeae sequence from UniProt: Q04057
+
+#### Load in Nitrosopumilus and Nitrosomonas AMO-alpha FASTA files
+
 nitrosopumilus_amoA_file = file.choose()
 nitrosopumilus_amoA = read.fasta(file = nitrosopumilus_amoA_file, seqtype = "AA")[[1]]
 
