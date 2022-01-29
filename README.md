@@ -154,6 +154,8 @@ hist(randomscores, col = "blue")
 
 sum(randomscores >= globalAligns1@score) ### BLOSUM50: 1/1000, BLOSUM62: 1/1000, BLOSUM80: 1/1000   
 
+![Screenshot (43)](https://user-images.githubusercontent.com/32500894/151642083-f0aaca70-1d09-4836-a8bd-516b2c6622d9.png)
+
 ##### This gives us a value of 1, which means exactly 1 of the random seqs generated gives an alignment score greater than or equal to the real alignment score between Nitrosopumilus and Nitrosomonas amoA genes
 #### -- Repeat with Nitrosomonas vs Nitrosopumilus' random seqs
 
@@ -176,6 +178,8 @@ print(randomscores[1000])
 hist(randomscores, col = "red")
 
 sum(randomscores >= globalAligns1@score) ### BLOSUM50: 1/1000, BLOSUM62: 1/1000, BLOSUM80: 0/1000
+
+![Screenshot (44)](https://user-images.githubusercontent.com/32500894/151642093-60046846-08ce-43b0-884c-47c2c1ecfe96.png)
 
 #### This gives us a value of 1, which means exactly 1 of the random seqs generated gives an alignment score greater than or equal to the real alignment score between Nitrosopumilus and Nitrosomonas amoA genes
 #### ... i.e. that our p-value is 1/1000 = 0.001, and this maintains between both amino acid sequences
