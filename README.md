@@ -2,6 +2,11 @@
 
 ## Protein global sequence alignment of the alpha subunit of the ammonia monooxygenase gene from AOAs, Nitrosopumilus maritimus and Nitrosomonas europeae 
 
+### Background info
+Nitrosopumilus and Nitrosomonas are both ammonia-oxidizing archaea (AOAs), which are an extremely important class of microorganisms due to their role in the Nitrogen cycle. 
+Their metabolism is based entirely on oxidizing ammonia (NH3) to nitrite anions (NO2-). I won't go into too much detail, but the most important enzyme involved is the ammonia monooxygenase (AMO) complex, made up of alpha, beta, and gamma subunits. 
+![2-Figure1-1](https://user-images.githubusercontent.com/32500894/151643061-966ef029-9a74-4f6f-b773-622ddfc5f267.png)
+
 ### Retrieve and import FASTA protein sequence from Uniprot
 library(seqinr)
 library(Biostrings)
